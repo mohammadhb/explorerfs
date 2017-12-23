@@ -1,6 +1,6 @@
 {
   "name": "explorerfs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a Tool for working with directories , searching , reading , ...",
   "main": "index.js",
   "scripts": {
