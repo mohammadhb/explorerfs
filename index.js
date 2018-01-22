@@ -14,18 +14,26 @@ explorerfs.pwd = function(){
 explorerfs.up = function(){
 
 	current_location = path.resolve(current_location,'../');
-	return explorerjs;
+	return explorerfs;
 
 }
 
 explorerfs.goto = function(folder_name){
 
+//On Missing Parameter
+	if(folder_name==undefined)
+		folder_name = './';
+
 	current_location = path.resolve(current_location,folder_name);
-	return explorerjs;
+	return explorerfs;
 
 }
 
 explorerfs.isFolder = function(folder_name){
+
+//On Missing Parameter
+	if(folder_name==undefined)
+		folder_name = './';
 
 	fs.lstatSync(folder_name);
 	return fs.lstatSync(folder_name).isDirectory();
@@ -34,17 +42,7 @@ explorerfs.isFolder = function(folder_name){
 
 explorerfs.search = function(paths,key_word){
 
-	//open paths
-	for(path in paths){
-
-		//look for folder
-		return new Promise((resolve,reject)=>{
-			
-			return resolve(explorerfs(paths,key_word));
-
-		});
-
-	}
+	
 
 }
 
