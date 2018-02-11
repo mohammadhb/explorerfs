@@ -40,9 +40,24 @@ explorerfs.isFolder = function(folder_name){
 
 }
 
-explorerfs.search = function(paths,key_word){
+explorerfs.search = function(path,key_word,level){
 
-	
+	console.log(`exploring : ${path}`);
+
+	return new Promise((reject,resolve)=>{
+
+		if(fs.lstatSync(path).isDirectory()) {
+
+			fs.readdir(path,'utf8',(error,files)=>{
+
+				for (file of files)
+					return explorerfs.search(file,key_word,level--);
+
+			});
+
+		}
+
+	});
 
 }
 
