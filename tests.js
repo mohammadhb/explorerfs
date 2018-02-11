@@ -168,7 +168,18 @@ function bfs(paths,key_word,level){
 
 }
 
+function getUnifiedRegex(key_word){
+
+  if( typeof key_word ==="object" && input.exec && input.text)
+    return key_word;
+  else if (typeof key_word ==="string")
+    return new RegExp(key_word,'iy');
+
+
+}
+
 bfs(case1,'var',3).then((resolve,reject)=>{
+
 
   console.log(resolve)
 
