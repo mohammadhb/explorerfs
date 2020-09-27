@@ -6,5 +6,4 @@ function getUnifiedRegex(key_word){
   else if (typeof key_word ==="string")
     return new RegExp(key_word,'iy');
 
-
 }
